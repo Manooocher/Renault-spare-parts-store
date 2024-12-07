@@ -1,0 +1,104 @@
+renault-store/
+│
+├── backend/               # بخش سرور (Backend)
+│   ├── config/            # تنظیمات پروژه
+│   │   ├── db.js          # اتصال به پایگاه داده MongoDB
+│   │   └── config.js      # تنظیمات دیگر مانند کلیدهای API و پیکربندی‌ها
+│   ├── controllers/       # منطق API ها
+│   │   ├── authController.js
+│   │   ├── productController.js
+│   │   └── orderController.js
+│   ├── models/            # مدل‌های داده‌ای (Mongoose Models)
+│   │   ├── userModel.js   # مدل کاربر
+│   │   ├── productModel.js# مدل محصول
+│   │   └── orderModel.js  # مدل سفارش
+│   ├── routes/            # مسیرها (API Routes)
+│   │   ├── authRoutes.js  # مسیرهای مربوط به احراز هویت
+│   │   ├── productRoutes.js
+│   │   └── orderRoutes.js
+│   ├── middleware/        # میانه‌افزارها (برای اعتبارسنجی و مدیریت دسترسی)
+│   │   └── authMiddleware.js
+│   ├── server.js          # تنظیمات اولیه سرور (Express.js)
+│   └── .env               # فایل تنظیمات محیط (برای ذخیره کلیدها و پیکربندی‌ها)
+│
+├── frontend/              # بخش کلاینت (Frontend)
+│   ├── components/        # کامپوننت‌های React
+│   │   ├── Navbar.js      # ناوبری بالای سایت
+│   │   ├── Footer.js      # فوتر سایت
+│   │   ├── ProductCard.js # کامپوننت نمایش محصول
+│   │   ├── CartItem.js    # کامپوننت نمایش هر آیتم در سبد خرید
+│   │   └── CheckoutForm.js# فرم تسویه حساب
+│   ├── pages/             # صفحات سایت
+│   │   ├── index.js       # صفحه اصلی
+│   │   ├── products.js    # صفحه نمایش محصولات
+│   │   ├── cart.js        # صفحه سبد خرید
+│   │   ├── checkout.js    # صفحه تسویه حساب
+│   │   ├── login.js       # صفحه ورود
+│   │   └── register.js    # صفحه ثبت‌نام
+│   ├── redux/             # Redux برای مدیریت وضعیت
+│   │   ├── actions/       # اکشن‌ها
+│   │   │   ├── cartActions.js
+│   │   │   └── userActions.js
+│   │   ├── reducers/      # ریدوسرها
+│   │   │   ├── cartReducer.js
+│   │   │   └── userReducer.js
+│   │   └── store.js       # تنظیمات اولیه Redux store
+│   ├── styles/            # استایل‌ها (CSS/SCSS)
+│   │   ├── globals.css    # استایل‌های عمومی
+│   │   └── product.css    # استایل‌های صفحه محصول
+│   ├── utils/             # توابع کمکی و ابزارها
+│   │   ├── axios.js       # تنظیمات اولیه axios برای ارسال درخواست‌ها
+│   │   └── auth.js        # توابع مربوط به احراز هویت
+│   ├── public/            # فایل‌های عمومی (تصاویر، فونت‌ها و ...)
+│   │   └── logo.png
+│   ├── next.config.js     # تنظیمات خاص Next.js
+│   └── package.json       # پیکربندی npm برای پروژه frontend
+│
+└── .gitignore             # فایل برای نادیده گرفتن فایل‌های خاص هنگام استفاده از گیت
+
+
+backend/:
+config/:
+db.js: تنظیمات اتصال به MongoDB با استفاده از Mongoose.
+config.js: این فایل شامل پیکربندی‌های مختلف پروژه مانند کلیدهای محیطی، URL پایگاه داده، پیکربندی‌های JWT و موارد مشابه است.
+controllers/:
+authController.js: شامل منطق مربوط به احراز هویت (ورود، ثبت‌نام، JWT).
+productController.js: شامل منطق نمایش محصولات، افزودن محصول و ویرایش آن‌ها.
+orderController.js: مدیریت سفارشات (ایجاد سفارش، تاریخچه سفارشات).
+models/:
+userModel.js: مدل کاربر که شامل اطلاعاتی مثل نام، ایمیل، رمز عبور و ...
+productModel.js: مدل محصول که شامل اطلاعات محصول مانند نام، قیمت، توضیحات و دسته‌بندی است.
+orderModel.js: مدل سفارش که اطلاعات مربوط به سبد خرید، محصولات خریداری شده، وضعیت سفارش و ...
+routes/:
+authRoutes.js: مسیرهای مربوط به احراز هویت.
+productRoutes.js: مسیرهای مربوط به محصولات.
+orderRoutes.js: مسیرهای مربوط به سفارشات.
+middleware/:
+authMiddleware.js: میانه‌افزاری برای تأیید هویت کاربر (اعتبارسنجی JWT و بررسی دسترسی).
+server.js: فایل اصلی برای راه‌اندازی و تنظیمات سرور Express.
+
+
+frontend/:
+components/:
+این پوشه شامل کامپوننت‌های مختلف React است که در صفحات مختلف مورد استفاده قرار می‌گیرند (مانند Navbar, Footer, ProductCard, CartItem).
+pages/:
+index.js: صفحه اصلی سایت که معمولاً نمایش محصولات را انجام می‌دهد.
+products.js: صفحه‌ای که محصولات را نمایش می‌دهد.
+cart.js: صفحه سبد خرید که محصولات اضافه‌شده به سبد خرید را نمایش می‌دهد.
+checkout.js: صفحه تسویه حساب برای وارد کردن اطلاعات پرداخت.
+login.js: صفحه ورود.
+register.js: صفحه ثبت‌نام.
+redux/:
+actions/: فایل‌هایی که اکشن‌ها را برای Redux ایجاد می‌کنند. برای مثال cartActions.js برای افزودن و حذف محصولات از سبد خرید.
+reducers/: فایل‌هایی که وضعیت‌های مختلف پروژه را مدیریت می‌کنند.
+store.js: تنظیمات اولیه برای Redux store.
+styles/:
+استایل‌های پروژه که می‌توانند به صورت CSS یا SCSS تعریف شوند.
+utils/:
+axios.js: پیکربندی اولیه برای استفاده از axios برای ارسال درخواست‌ها.
+auth.js: توابع مربوط به احراز هویت مانند ذخیره و بازیابی توکن‌ها.
+
+
+و در آخر
+.env: این فایل در پوشه backend برای ذخیره اطلاعات محیطی مانند URL پایگاه داده و کلیدهای API استفاده می‌شود.
+public/: پوشه‌ای است که شامل فایل‌های ثابت مانند تصاویر، لوگوها و فونت‌ها قرار دارد.
